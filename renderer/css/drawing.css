@@ -1,0 +1,195 @@
+:root {
+    /* Dark pallete */
+    --d-c1: #1e1f22;
+    --d-c2: #151618;
+
+    --bg-c: var(--d-c1);
+    --c1: #222831;
+    --c2: #393E46;
+    --c3: #00ADB5;
+    --c4: #EEEEEE;
+}
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/*Remove default margin*/
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+    list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+    scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    text-rendering: optimizeSpeed;
+    line-height: 1.5;
+    /* overflow: hidden; */
+    color: var(--c4);
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+    text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+    max-width: 100%;
+    display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    -o-appearance: none;
+    appearance: none;
+    outline: none;
+    background-color: transparent;
+    border: none;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+    html:focus-within {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+svg {
+    fill: var(--c4);
+
+}
+
+main {
+    background-color: var(--bg-c);
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--c4);
+    /* transform: scale(.5); */
+}
+
+.canvasWrapper {
+    background-color: #393E46;
+    transform-origin: center;
+    /* transform: scale(.5); */
+    /* padding: 40px;
+    border-radius: 10px; */
+}
+
+.tools {
+    color: var(--c4);
+    position: fixed;
+    left: 10px;
+    height: 100%;
+    width: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 1000;
+}
+
+
+.buttonContainer {
+    background-color: var(--d-c2);
+    color: var(--c4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 10px;
+}
+
+
+.menuBtn {
+    width: 100%;
+    background-color: transparent;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+    padding: 5px;
+
+}
+
+.menuBtn input {
+    width: 100%;
+    color: var(--c4);
+    text-align: center;
+    font-weight: bolder;
+}
+
+
+.menuBtn:hover .logoBtn,
+.menuBtn.active .logoBtn {
+    background-color: var(--c3);
+}
+
+.logoBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 4px;
+}
+
+#colorPicker {
+    width: 1.25rem;
+    border-radius: 0.25rem;
+    height: 1.25rem;
+    outline: none;
+}

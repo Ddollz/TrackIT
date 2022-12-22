@@ -1,0 +1,20 @@
+{
+  "name": "trackit",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "watch": "nodemon --exec electron ."
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^22.0.0"
+  },
+  "dependencies": {
+    "jimp": "^0.16.2",
+    "moment": "^2.29.4",
+    "nodemon": "^2.0.20"
+  }
+}

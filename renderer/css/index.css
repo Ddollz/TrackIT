@@ -1,0 +1,409 @@
+:root {
+    /* Dark pallete */
+    --d-c1: #1e1f22;
+    --d-c2: #151618;
+
+    --bg-c: var(--d-c1);
+    --c1: #222831;
+    --c2: #393E46;
+    --c3: #00ADB5;
+    --c4: #EEEEEE;
+}
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/*Remove default margin*/
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+    list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+    scroll-behavior: smooth;
+}
+
+
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+    text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+    max-width: 100%;
+    display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+    font: inherit;
+    color: #EDEDED;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+    html:focus-within {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+main {
+    height: 100%;
+    overflow-y: auto;
+    background-color: var(--bg-c);
+    text-rendering: optimizeSpeed;
+    line-height: 1.5;
+    color: #EEEEEE;
+    border-radius: 10px;
+    /* -webkit-app-region: drag; */
+}
+
+main::-webkit-scrollbar {
+    display: none;
+}
+
+#scrollbar-wrapper {
+    position: fixed;
+    top: 0;
+    z-index: 1000000;
+    right: 0;
+    width: 6px;
+    left: auto;
+    bottom: 0;
+    overflow: hidden;
+    border-radius: 0 10px 10px 0;
+    /* background-color: #F5EFE1; */
+}
+
+.scrollbar {
+    overflow: hidden;
+    border-radius: 0 10px 10px 0;
+}
+
+#scrollbar-wrapper .scrollbar {
+    position: absolute;
+    display: block;
+    height: 10%;
+    background-color: var(--c3);
+    right: 0;
+    width: 6px;
+    left: auto;
+    bottom: 0;
+    -webkit-transform: translateY(-100vh);
+    -ms-transform: translateY(-100vh);
+    transform: translateY(-100vh);
+    -webkit-transition: 0.4s cubic-bezier(0.075, 0.82, 0.165, 1) -webkit-transform;
+    transition: 0.4s cubic-bezier(0.075, 0.82, 0.165, 1) -webkit-transform;
+    -o-transition: 0.4s cubic-bezier(0.075, 0.82, 0.165, 1) transform;
+    transition: 0.4s cubic-bezier(0.075, 0.82, 0.165, 1) transform;
+    transition: 0.4s cubic-bezier(0.075, 0.82, 0.165, 1) transform,
+        0.4s cubic-bezier(0.075, 0.82, 0.165, 1) -webkit-transform;
+    z-index: 1000000;
+}
+
+/* main::-webkit-scrollbar-track {
+    border-radius: 2px;
+    background-color: transparent;
+}
+
+main::-webkit-scrollbar {
+    width: 2px;
+    background-color: transparent;
+}
+
+main::-webkit-scrollbar-thumb {
+    border-radius: 2px;
+    background-color: var(--c4);
+} */
+
+
+
+.dragablespace {
+    -webkit-app-region: drag;
+    cursor: move;
+    /* fallback if grab cursor is unsupported */
+    cursor: grab;
+    cursor: -moz-grab;
+    cursor: -webkit-grab;
+
+}
+
+.titlebar_wrapper {
+    display: flex;
+    align-items: center;
+    height: 30px;
+    margin-left: auto;
+    margin-right: 10px;
+    gap: 10px;
+}
+
+
+
+.btn {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 8px;
+    width: 12px;
+    height: 12px;
+    cursor: pointer;
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
+
+}
+
+.btn .box {
+    width: 10px;
+    height: 10px;
+    border: #f2f5fa solid 3px;
+}
+
+.btn.isFull .box {
+    width: 10px;
+    height: 10px;
+    border: #f2f5fa solid 1px;
+}
+
+.btn.isFull .box::before {
+    content: '';
+    position: absolute;
+
+    width: 10px;
+    height: 10px;
+    transform: translate(-3px, -3px);
+    border: #f2f5fa solid 1px;
+}
+
+
+.btn .line {
+    width: 10px;
+    height: 3px;
+    background-color: #f2f5fa;
+    border-radius: 5px;
+    transition: all 0.5s ease-in-out;
+}
+
+.btn2 .line::before,
+.btn2 .line::after {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 3px;
+    border-radius: 5px;
+    transition: all 0.5s ease-in-out;
+}
+
+.btn2 .line {
+    background-color: transparent;
+}
+
+.btn2 .line::before {
+    transform: rotateZ(45deg);
+    background-color: #f2f5fa;
+}
+
+
+.btn2 .line::after {
+    transform: rotateZ(-45deg);
+    background-color: #f2f5fa;
+}
+
+
+.side_floatMenu {
+    position: fixed;
+    left: 10px;
+    height: 100%;
+    width: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.buttonContainer {
+    background-color: var(--d-c2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 10px;
+}
+
+.buttonContainer.exit {
+    position: absolute;
+    bottom: 50px;
+}
+
+.menuBtn {
+    width: 100%;
+    background-color: transparent;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+    padding: 5px;
+
+}
+
+
+.menuBtn:hover .logoBtn,
+.menuBtn.active .logoBtn {
+    background-color: var(--c3);
+}
+
+.logoBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 4px;
+}
+
+.screenshots,
+.libraries {
+    margin-left: 50px;
+    display: grid;
+    gap: 1.5rem;
+    padding: 5px 20px;
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+.screenshots {
+    display: grid;
+}
+
+.libraries {
+    display: none;
+}
+
+/* For extremely small screen devices (595px and below) */
+@media only screen and (max-width: 595px) {
+    .screenshots {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .libraries {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+/* Small screen devices (600px and above) */
+@media only screen and (min-width: 720px) {
+    .screenshots {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .libraries {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Medium screen devices (768px and above) */
+@media only screen and (min-width: 768px) {
+    .screenshots {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .libraries {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Big screen devices (889px and above) */
+@media only screen and (min-width: 980px) {
+    .screenshots {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .libraries {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* Extra big screen devices (1200px and above) */
+@media only screen and (min-width: 1230px) {
+    .screenshots {
+        grid-template-columns: repeat(5, 1fr);
+    }
+
+    .libraries {
+        grid-template-columns: repeat(5, 1fr);
+    }
+}
+
+.itemContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.imgContainer {
+    max-width: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.imgLabel {
+    width: 100%;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.imageWrapper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 135px;
+    overflow: hidden;
+    background-color: var(--d-c2);
+    border-radius: 5px;
+    padding: 10px 10px;
+    cursor: pointer;
+}

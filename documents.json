@@ -1,0 +1,39 @@
+{
+    "Documents": [
+        {
+            "documentid": 231,
+            "documentName": "Document 231",
+            "documentDate": "2022-12-19",
+            "documentStep": [
+                "screenshot-1.png",
+                "screenshot-2.png",
+                "facebook.com",
+                "screenshot-3.png",
+                "screenshot-4.png"
+            ],
+            "stepMouseCoordinates": {
+                "screenshot-1.png": [
+                    1265,
+                    20
+                ],
+                "screenshot-2.png": [
+                    1198,
+                    60
+                ],
+                "screenshot-3.png": [
+                    1875,
+                    99
+                ],
+                "screenshot-4.png": [
+                    1700,
+                    178
+                ],
+                "screenshot-5.png": [
+                    979,
+                    564
+                ]
+            },
+            "documentPath": "Doc-6"
+        }
+    ]
+}

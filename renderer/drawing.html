@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>HTML5 Drawing Tool Demo</title>
+    <link rel="stylesheet" href="./css/drawing.css">
+    <link rel="stylesheet" href="https://unpkg.com/alwan/dist/css/alwan.min.css">
+</head>
+
+<body>
+    <div class="tools">
+
+        <div class="buttonContainer">
+            <button class="menuBtn">
+                <div class="logoBtn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="bi bi-hand-index-fill" viewBox="0 0 16 16">
+                        <path d="M8.5 4.466V1.75a1.75 1.75 0 1 0-3.5 0v5.34l-1.2.24a1.5 1.5 0 0 0-1.196 1.636l.345 3.106a2.5 2.5 0 0 0 .405 1.11l1.433 2.15A1.5 1.5 0 0 0 6.035 16h6.385a1.5 1.5 0 0 0 1.302-.756l1.395-2.441a3.5 3.5 0 0 0 .444-1.389l.271-2.715a2 2 0 0 0-1.99-2.199h-.581a5.114 5.114 0 0 0-.195-.248c-.191-.229-.51-.568-.88-.716-.364-.146-.846-.132-1.158-.108l-.132.012a1.26 1.26 0 0 0-.56-.642 2.632 2.632 0 0 0-.738-.288c-.31-.062-.739-.058-1.05-.046l-.048.002z" />
+                    </svg>
+                </div>
+            </button>
+            <!-- 
+            <button class="menuBtn">
+                <div class="logoBtn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M21.2635 2.29289C20.873 1.90237 20.2398 1.90237 19.8493 2.29289L18.9769 3.16525C17.8618 2.63254 16.4857 2.82801 15.5621 3.75165L4.95549 14.3582L10.6123 20.0151L21.2189 9.4085C22.1426 8.48486 22.338 7.1088 21.8053 5.99367L22.6777 5.12132C23.0682 4.7308 23.0682 4.09763 22.6777 3.70711L21.2635 2.29289ZM16.9955 10.8035L10.6123 17.1867L7.78392 14.3582L14.1671 7.9751L16.9955 10.8035ZM18.8138 8.98525L19.8047 7.99429C20.1953 7.60376 20.1953 6.9706 19.8047 6.58007L18.3905 5.16586C18 4.77534 17.3668 4.77534 16.9763 5.16586L15.9853 6.15683L18.8138 8.98525Z" />
+                        <path d="M2 22.9502L4.12171 15.1717L9.77817 20.8289L2 22.9502Z" />
+                    </svg>
+                </div>
+            </button> 
+        -->
+            <button class="menuBtn" id="brush" onclick="toggleMode(modes.drawing)">
+                <div class="logoBtn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="bi bi-brush-fill" viewBox="0 0 16 16">
+                        <path d="M15.825.12a.5.5 0 0 1 .132.584c-1.53 3.43-4.743 8.17-7.095 10.64a6.067 6.067 0 0 1-2.373 1.534c-.018.227-.06.538-.16.868-.201.659-.667 1.479-1.708 1.74a8.118 8.118 0 0 1-3.078.132 3.659 3.659 0 0 1-.562-.135 1.382 1.382 0 0 1-.466-.247.714.714 0 0 1-.204-.288.622.622 0 0 1 .004-.443c.095-.245.316-.38.461-.452.394-.197.625-.453.867-.826.095-.144.184-.297.287-.472l.117-.198c.151-.255.326-.54.546-.848.528-.739 1.201-.925 1.746-.896.126.007.243.025.348.048.062-.172.142-.38.238-.608.261-.619.658-1.419 1.187-2.069 2.176-2.67 6.18-6.206 9.117-8.104a.5.5 0 0 1 .596.04z" />
+                    </svg>
+                </div>
+            </button>
+
+            <button class="menuBtn">
+                <div class="logoBtn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M17 7H7V17H17V7ZM4 4V20H20V4H4Z" />
+                    </svg>
+                </div>
+            </button>
+            <button class="menuBtn">
+                <div class="logoBtn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M12 17C14.7614 17 17 14.7614 17 12C17 9.23858 14.7614 7 12 7C9.23858 7 7 9.23858 7 12C7 14.7614 9.23858 17 12 17ZM12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4C7.58172 4 4 7.58172 4 12C4 16.4183 7.58172 20 12 20Z" />
+                    </svg>
+                    </svg>
+            </button>
+            <button class="menuBtn">
+                <div class="logoBtn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M18.2426 7.17154L16.8284 5.75732L7.75739 14.8283L7.75739 10.2427H5.75739L5.75739 18.2427H13.7574V16.2427L9.17144 16.2427L18.2426 7.17154Z" />
+                    </svg>
+                </div>
+            </button>
+        </div>
+        <div class="buttonContainer" style="margin-top: 10px;">
+
+            <button class="menuBtn">
+
+                <div class="logoBtn">
+
+                    <div id="colorPicker">
+
+                    </div>
+                </div>
+            </button>
+            <div class="menuBtn">
+                <input type="number" value="8" id="widthInput">
+
+            </div>
+        </div>
+
+    </div>
+    <main id="main">
+        <div class="canvasWrapper" id="canvasWrapper">
+            <canvas id="canvas" width="500" height="500"></canvas>
+        </div>
+    </main>
+    <script src="https://unpkg.com/alwan/dist/js/alwan.min.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/fabric"></script> -->
+    <script src="./js/fabric.min.js"></script>
+    <script src="./js/drawing.js"></script>
+</body>
+
+</html>
